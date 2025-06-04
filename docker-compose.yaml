@@ -1,0 +1,18 @@
+name: stikked
+services:
+  web:
+    image: casjaysdevdocker/stikked:latest
+    container_name: stikked
+    hostname: stikked
+    restart: always
+    pull_policy: always
+    volumes:
+      - './rootfs/data/stikked:/data'
+      - './rootfs/config/stikked:/config'
+    networks:
+      - stikked
+
+networks:
+  stikked:
+    name: stikked
+    external: false
