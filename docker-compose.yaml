@@ -1,0 +1,31 @@
+# nginx proxy address - http://172.17.0.1:60191
+
+name: stikked
+x-logging: &default-logging
+  options:
+    max-size: '5m'
+    max-file: '1'
+  driver: json-file
+
+services:
+  app:
+    image: casjaysdevdocker/stikked:latest
+    container_name: stikked-app
+    hostname: ${BASE_HOST_NAME:-$HOSTNAME}
+    restart: always
+    pull_policy: always
+    logging: *default-logging
+    environment:
+      TZ: ${TZ:-America/New_York}
+    ports:
+      - '172.17.0.1:60191:80'
+    volumes:
+      - './rootfs/data/stikked:/data'
+      - './rootfs/config/stikked:/config'
+    networks:
+      - stikked
+
+networks:
+  stikked:
+    name: stikked
+    external: false
