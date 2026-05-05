@@ -20,8 +20,8 @@ services:
     ports:
       - '172.17.0.1:60191:80'
     volumes:
-      - './rootfs/data/stikked:/data'
-      - './rootfs/config/stikked:/config'
+      - './volumes/data/stikked:/data'
+      - './volumes/config/stikked:/config'
     networks:
       - stikked
 
