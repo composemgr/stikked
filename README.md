@@ -45,8 +45,8 @@ See `docker-compose.yaml` for complete list of configurable options.
 
 ## 📂 Volumes
 
-- `./rootfs/data/stikked` - Data storage
-- `./rootfs/config/stikked` - Data storage
+- `./volumes/data/stikked` - Data storage
+- `./volumes/config/stikked` - Data storage
 
 ## 🔍 Logging
 
